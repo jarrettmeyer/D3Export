@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+}
+
+<div id="scatterplot-canvas">
+</div>
+
+<div>
+    <button type="button" id="save-scatterplot">Save</button>
+</div>
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-2.1.0.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/d3.v3.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/app/drawing.js")"></script>
+<script type="text/javascript">
+    $("#save-scatterplot").click(function() {
+        var svg = $("#scatterplot-canvas").html();
+        console.log(svg);
+        $.post("/home/save", { svg: svg }, function(data) {
+            alert("Saved!");
+        });
+    });
+</script>
