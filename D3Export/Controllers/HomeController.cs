@@ -3,6 +3,7 @@ using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Web.Mvc;
+using D3Export.ViewModels;
 
 namespace D3Export.Controllers
 {
@@ -15,12 +16,13 @@ namespace D3Export.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(string svg)
+        [ValidateInput(false)]
+        public ActionResult Save(PostSvg form)
         {
             var filePath = GetRandomFilePath();
             using (var file = new FileStream(filePath, FileMode.Create))
             {
-                byte[] buffer = Encoding.UTF8.GetBytes(svg);
+                byte[] buffer = Encoding.UTF8.GetBytes(form.SVG);
                 int length = buffer.Length;
                 file.Write(buffer, 0, length);
             }
