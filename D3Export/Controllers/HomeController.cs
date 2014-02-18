@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using System.IO;
-using System.Text;
 using System.Web.Mvc;
 using D3Export.Lib;
 using D3Export.ViewModels;
