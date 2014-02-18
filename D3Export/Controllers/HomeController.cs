@@ -22,6 +22,8 @@ namespace D3Export.Controllers
             using (var svgWriter = new SVGWriter())
             {
                 svgWriter.Write(form.SVG);
+                var path = svgWriter.FilenameWithPath;
+                new PDFExporter().ExportSVG(path);
             }
 
             return Json(new

@@ -8,15 +8,27 @@ namespace D3Export.Lib
     public class SVGWriter : IDisposable
     {
         private const string EXTENSION = ".svg";
+        private readonly string filename;
         private readonly FileStream fileStream;
+        private readonly string path;
 
         public SVGWriter(string filenameWithoutExtension = null, string saveDirectory = null)
         {
             filenameWithoutExtension = filenameWithoutExtension ?? Guid.NewGuid().ToString("N");
             saveDirectory = saveDirectory ?? HttpContext.Current.Server.MapPath("~/Content/Images");
-            var filename = filenameWithoutExtension + EXTENSION;
-            var path = Path.Combine(saveDirectory, filename);
+            filename = filenameWithoutExtension + EXTENSION;
+            path = Path.Combine(saveDirectory, filename);
             fileStream = new FileStream(path, FileMode.Create);
+        }
+
+        public string Filename
+        {
+            get { return filename; }
+        }
+
+        public string FilenameWithPath
+        {
+            get { return path; }
         }
 
         public void Dispose()
@@ -34,12 +46,12 @@ namespace D3Export.Lib
 
         protected virtual void Dispose(bool isDisposing)
         {
-            if (isDisposing)
+            if (!isDisposing)
+                return;
+
+            if (fileStream != null)
             {
-                if (fileStream != null)
-                {
-                    fileStream.Dispose();
-                }
+                fileStream.Dispose();
             }
         }
     }
