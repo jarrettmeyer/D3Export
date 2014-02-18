@@ -15,8 +15,9 @@
     var pointRadius = 3;
 
     // Define some mock data.
-    var data = [];
-    for (var i = 0; i < 100; i += 1) {
+    var data = [],
+        dataCount = parseInt(20 + Math.random() * 80);
+    for (var i = 0; i < dataCount; i += 1) {
         var x = 20 + Math.random() * 20,
             y = 40 + Math.random() * 25;
         var datum = { i: i + 1, x: x, y: y };
