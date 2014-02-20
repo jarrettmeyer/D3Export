@@ -1,5 +1,6 @@
 bin/
 obj/
+D3Export/Content/Images/*.pdf
 D3Export/Content/Images/*.svg
 
 *.suo
