@@ -21,11 +21,12 @@ namespace D3Export.Controllers
             {
                 svgWriter.Write(form.SVG);
                 var path = svgWriter.FilenameWithPath;
-                new PDFExporter().ExportSVG(path);
+                new InkscapePDFExporter().ExportSVG(path);
             }
 
             return Json(new
             {
+                success = true,
                 timestamp = DateTime.UtcNow.ToString(CultureInfo.InvariantCulture)
             });
         }

@@ -2,8 +2,3 @@
     margin: 0;
     padding: 10px auto;
 }
-
-#scatterplot-canvas {
-    width: 1024px;
-    height: 768px;
-}

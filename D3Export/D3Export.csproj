@@ -96,7 +96,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Lib\PDFExporter.cs" />
+    <Compile Include="Lib\IPDFExporter.cs" />
+    <Compile Include="Lib\InkscapePDFExporter.cs" />
     <Compile Include="Lib\SVGWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\PostSvg.cs" />

@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace D3Export.Lib
 {
-    public class PDFExporter
+    public class InkscapePDFExporter : IPDFExporter
     {
         public static string InkscapeArguments
         {
